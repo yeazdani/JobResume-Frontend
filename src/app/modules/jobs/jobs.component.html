@@ -1,0 +1,37 @@
+<section>
+    <div class="background">
+        <img src="../../../assets/notebookjpg.jpg" alt="">
+    </div>
+    <!-- search field -->
+    <div class="container">
+        <div class="row" style="margin-top:120px;">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="search jobs by title"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-info" type="button" id="button-addon2">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- job section -->
+    <div class="inner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <app-job-filter></app-job-filter>
+                </div>
+                <div class="col-4">
+                    <app-job-list></app-job-list>
+                </div>
+                <div class="col-5">
+                    <app-job-details></app-job-details>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

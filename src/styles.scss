@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@import "../src/scss/bootstrap.scss";
+
+@include mat-core();
+
+$mcit-final-project-primary: mat-palette($mat-cyan, A100);
+$mcit-final-project-accent: mat-palette($mat-cyan, A100);
+
+// The warn palette is optional (defaults to red).
+$mcit-final-project-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$mcit-final-project-theme: mat-light-theme(
+  $mcit-final-project-primary,
+  $mcit-final-project-accent,
+  $mcit-final-project-warn
+);
+
+@include angular-material-theme($mcit-final-project-theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

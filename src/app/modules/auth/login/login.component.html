@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="card mt-4">
+                <div class="card-header text-center">
+                    USER LOGIN
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="loginForm">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input formControlName="email" type="email" class="form-control"
+                                aria-describedby="emailHelp">
+                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input formControlName="password" type="password" class="form-control">
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <div>
+                                <button style="width: 100%" (click)="login()" [disabled]="isDisabled"
+                                    class="btn btn-primary">Log In</button>
+                            </div>
+                            <div *ngIf="expression" class="spinner-border mt-3" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <br>
+                        <hr>
+                        <div class="signup">
+                            <br>
+                            <p class="text-muted text-center">
+                                Don't have an account? <span class="ml-3"><a [routerLink]="['/signup']"
+                                        class="text-decoration-none"> Sign Up</a></span>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

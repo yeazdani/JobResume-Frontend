@@ -1,0 +1,22 @@
+<div class="card mt-4">
+    <div class="card-header">
+        SKILLS
+    </div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <input #add type="text" class="form-control" placeholder="Add Skills" aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="addSkill(add)" type="button">
+                    Add
+                </button>
+            </div>
+        </div>
+        <span *ngFor="let skill of skills; let i = index" class="mr-2">
+            <button mat-stroked-button (click)="deleteSkill(i)">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">close</mat-icon>
+                <span>{{skill}}</span>
+            </button>
+        </span>
+    </div>
+</div>

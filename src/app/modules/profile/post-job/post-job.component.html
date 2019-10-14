@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header">
+            POST JOB
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Job Title</label>
+                            <input type="email" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="email" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="email" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                        <mat-form-field>
+                            <mat-label>Job Type</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let jobType of jobTypes" [value]="jobType">
+                                    {{jobType}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <label class="col-form-label-sm">Application Deadline</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="picker1" placeholder="Date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker1></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Job Details</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-primary float-right">Post</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

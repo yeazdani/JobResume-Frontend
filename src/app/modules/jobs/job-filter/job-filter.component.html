@@ -6,15 +6,10 @@
                     <div class="card-body">
                         <h5 class="card-title text-info font-weight-light">Job Filter</h5>
                         <hr>
-                        <div>
-                            <mat-checkbox>Full-Time</mat-checkbox>
+                        <div *ngFor="let item of filterCheckBoxs">
+                            <mat-checkbox #checkBox (click)="checked(checkBox,item)">{{item}}</mat-checkbox>
                         </div>
-                        <div>
-                            <mat-checkbox>Part-Time</mat-checkbox>
-                        </div>
-                        <div>
-                            <mat-checkbox>Check me!</mat-checkbox>
-                        </div>
+
                     </div>
                 </div>
             </div>

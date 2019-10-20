@@ -2,12 +2,19 @@
     <div class="card-header">
         Information
     </div>
-    <img src="../../../../assets/face.jpg" alt="..." class="card-img-top">
+    <div class="show-image">
+        <img src="../../../../assets/default.jpg" alt="..." class="card-img-top">
+        <input style="display: none;" #uploadImage type="file" (change)="onFileSelected($event)" />
+        <button class="update btn" (click)="uploadImage.click()">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">photo_camera</mat-icon>
+        </button>
+    </div>
+
     <div class="card-body">
-        <h5 class="card-title text-center">First Name Last Name</h5>
+        <h5 class="card-title text-center">{{firstName}} {{lastName}}</h5>
         <hr>
         <div class="text-center">
-            <button class="btn btn-success">Preview Resume</button>
+            <button class="btn btn-success" (click)="openDialog()">Preview Resume</button>
         </div>
     </div>
 </div>

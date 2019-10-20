@@ -9,7 +9,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Job Title</label>
-                            <input type="email" class="form-control">
+                            <input [(ngModel)]="job_title" name="job_title" type="email" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Company Name</label>
-                            <input type="email" class="form-control">
+                            <input [(ngModel)]="company_name" name="company_name" type="email" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                     <div class="col">
                         <div class="form-group">
                             <label>Location</label>
-                            <input type="email" class="form-control">
+                            <input [(ngModel)]="location" name="location" type="email" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
 
                         <mat-form-field>
                             <mat-label>Job Type</mat-label>
-                            <mat-select>
+                            <mat-select name="job_type" [(ngModel)]="job_type">
                                 <mat-option *ngFor="let jobType of jobTypes" [value]="jobType">
                                     {{jobType}}
                                 </mat-option>
@@ -53,7 +53,8 @@
                         <div class="row">
                             <div class="col">
                                 <mat-form-field>
-                                    <input matInput [matDatepicker]="picker1" placeholder="Date">
+                                    <input matInput [matDatepicker]="picker1" placeholder="Date" [(ngModel)]="deadline"
+                                        name="deadline">
                                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                                     <mat-datepicker #picker1></mat-datepicker>
                                 </mat-form-field>
@@ -65,13 +66,14 @@
                     <div class="col">
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Job Details</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea [(ngModel)]="job_details" name="job_details" class="form-control"
+                                rows="3"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-primary float-right">Post</button>
+                        <button (click)="post()" class="btn btn-primary float-right">Post</button>
                     </div>
                 </div>
             </form>

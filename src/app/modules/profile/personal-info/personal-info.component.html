@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        My Profile
+        User Info
     </div>
     <div class="card-body">
         <form>
@@ -8,13 +8,13 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">First Name</label>
-                        <input type="email" class="form-control">
+                        <input [(ngModel)]="first_name" name="first_name" type="email" class="form-control">
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Last Name</label>
-                        <input type="email" class="form-control">
+                        <input [(ngModel)]="last_name" name="last_name" type="email" class="form-control">
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Current Title</label>
-                        <input type="email" class="form-control">
+                        <input [(ngModel)]="current_title" name="current_title" type="email" class="form-control">
                     </div>
                 </div>
             </div>
@@ -30,13 +30,13 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Phone</label>
-                        <input type="email" class="form-control">
+                        <input [(ngModel)]="phone" name="phone" type="email" class="form-control">
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Email</label>
-                        <input type="email" class="form-control">
+                        <input [(ngModel)]="email" name="email" type="email" class="form-control" [disabled]="true">
                     </div>
                 </div>
             </div>
@@ -44,11 +44,17 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Location</label>
-                        <input type="email" class="form-control">
+                        <input [(ngModel)]="location" name="location" type="email" class="form-control">
                     </div>
                 </div>
             </div>
         </form>
-        <button type="submit" class="btn btn-primary float-right">Update</button>
+        <button type="submit" class="btn btn-primary float-right" (click)="update()">Update</button>
+        <div class="text-center">
+            <div *ngIf="loading" class="spinner-border mt-3" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
     </div>
 </div>

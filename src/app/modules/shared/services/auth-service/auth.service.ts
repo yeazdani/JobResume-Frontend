@@ -21,7 +21,16 @@ export class AuthService {
     return this.http.post<any>(`${environment.baseApiUrl}login`, user)
       .pipe(
         tap(response => {
-          const loggedInUser = response.id;
+          if (!response.id) {
+            console.log("user null, cant log in")
+            return ;
+          }
+          const loggedInUser = {
+            uid: response.id,
+            first_name: response.first_name,
+            last_name: response.last_name,
+            email: response.email
+          }
           const token = response.token;
           // TODO - login user
           this.doLoginUser(loggedInUser, token);

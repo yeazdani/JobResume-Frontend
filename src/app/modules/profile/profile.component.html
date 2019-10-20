@@ -23,17 +23,31 @@
             <div class="col-lg-8">
                 <div class="row">
                     <div class="col">
-                        <app-personal-info></app-personal-info>
+                        <app-personal-info (emitSnackBar)="openSnackBar($event)"></app-personal-info>
                     </div>
                 </div>
-                <div class="row">
+                <div *ngFor="let experience of experienceList;let i = index" class="row">
                     <div class="col">
-                        <app-experience></app-experience>
+                        <app-experience (emitSnackBar)="openSnackBar($event)" [selfIndex]="i"
+                            [experienceArray]="experienceList" (deleteEvent)="deleteExperience(i)"></app-experience>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col">
-                        <app-education></app-education>
+                        <button style="width: 100%;" class="btn btn-primary" (click)="addExperience()">Add
+                            Experience</button>
+                    </div>
+                </div>
+                <div *ngFor="let education of educationList;let j = index" class="row">
+                    <div class="col">
+                        <app-education (emitSnackBar)="openSnackBar($event)" (deleteEvent)="deleteEducation(j)"
+                            [educationArray]="educationList" [selfIndex]="j"></app-education>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col">
+                        <button style="width: 100%;" class="btn btn-primary" (click)="addEducation()">Add
+                            Education</button>
                     </div>
                 </div>
                 <div class="row">
@@ -43,5 +57,5 @@
                 </div>
             </div>
         </div>
-    </div>˝
+    </div>
 </div>

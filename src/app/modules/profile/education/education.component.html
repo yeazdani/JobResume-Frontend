@@ -3,73 +3,73 @@
         EDUCATION
     </div>
     <div class="card-body">
-        <form>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label>Institution</label>
-                        <input type="email" class="form-control">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Institution</label>
+                    <input [(ngModel)]="institution" name="institution" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Degree</label>
+                    <input [(ngModel)]="degree" name="degree" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label-sm">Date From</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker1" placeholder="Date" [(ngModel)]="date_from"
+                                name="date_from">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Degree</label>
-                        <input type="email" class="form-control">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <label class="col-form-label-sm">Date To</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker2" placeholder="Date" [(ngModel)]="date_to"
+                                name="date_to">
+                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <label class="col-form-label-sm">Date From</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <mat-form-field>
-                                <input matInput [matDatepicker]="picker1" placeholder="Date">
-                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                                <mat-datepicker #picker1></mat-datepicker>
-                            </mat-form-field>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
-                            <label class="col-form-label-sm">Date To</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <mat-form-field>
-                                <input matInput [matDatepicker]="picker2" placeholder="Date">
-                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                                <mat-datepicker #picker2></mat-datepicker>
-                            </mat-form-field>
-                        </div>
-                    </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Location</label>
+                    <input [(ngModel)]="location" name="location" type="text" class="form-control">
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Location</label>
-                        <input type="email" class="form-control">
-                    </div>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-danger" (click)="deleteEducation()">Delete</button>
             </div>
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-danger">Delete</button>
-                </div>
-                <div class="col">
-                    <button class="btn btn-primary float-right">Update</button>
-                </div>
+            <div class="col">
+                <button class="btn btn-primary float-right" (click)="updateEducation()">Update</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>

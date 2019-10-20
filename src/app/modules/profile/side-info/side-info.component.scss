@@ -1,0 +1,19 @@
+div.show-image {
+    position: relative;
+    float:left;
+}
+div.show-image:hover img{
+    opacity:0.5;
+    background-image: url();
+}
+div.show-image:hover button {
+    display: block;
+}
+div.show-image button {
+    position:absolute;
+    display:none;
+}
+div.show-image button.update {
+    top:0;
+    left:0;
+}

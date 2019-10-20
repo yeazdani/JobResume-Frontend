@@ -7,25 +7,38 @@
         <div class="row" style="margin-top:120px;">
             <div class="col">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="search jobs by title"
+                    <input [(ngModel)]="searchName" (ngModelChange)="seachInputValueChange()" name="searchName"
+                        type="text" class="form-control" placeholder="search by job title, type, company name, location"
                         aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <div class="input-group-append">
+                    <!-- <div class="input-group-append">
                         <button class="btn btn-info" type="button" id="button-addon2">Search</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
 
     <!-- job section -->
-    <div class="inner">
+    <div style="min-height: 1200px;;" class="inner">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-3">
-                    <app-job-filter></app-job-filter>
+                    <app-job-filter (checkedEvent)="changeSearchName($event)"></app-job-filter>
                 </div>
                 <div class="col-4">
-                    <app-job-list></app-job-list>
+                    <div *ngIf="loading" class="row text-center mt-4">
+                        <div class="col">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngFor="let item of jobs|filter:searchName; let i = index;">
+                        <app-job-list (click)="passJobId(item.id)" [job_title]="item.job?.job_title"
+                            [company_name]="item.job?.company_name" [location]="item.job?.location"
+                            [job_type]="item.job?.job_type" [deadline]="item.job?.deadline">
+                        </app-job-list>
+                    </div>
                 </div>
                 <div class="col-5">
                     <app-job-details></app-job-details>

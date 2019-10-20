@@ -1,4 +1,3 @@
-import { JobsComponent } from './modules/jobs/jobs.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './modules/auth/login/login.component';

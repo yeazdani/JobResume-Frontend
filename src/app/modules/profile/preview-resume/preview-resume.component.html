@@ -1,0 +1,126 @@
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col">
+            <h4 class="font-weight-light">Preview</h4>
+        </div>
+        <!-- <div class="col">
+            <button (click)="downloadPDF()" class="btn btn-success float-right">Download PDF</button>
+        </div> -->
+    </div>
+</div>
+
+<mat-dialog-content>
+    <div class="container-fluid" >
+        <div #content class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="row">
+                        <div class="col order-sm-2">
+                            <div class="text-left">
+                                <img src="../../../../assets/face.jpg" width="260px;" class=" p-4 rounded" alt="">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <div class="float-right pb-4 ">
+                                    <h4 class="card-title text-uppercase text-primary">{{userInfo?.first_name}}
+                                        {{userInfo?.last_name}}</h4>
+                                    <h5 class="card-subtitle mb-2">{{userInfo?.current_title}}</h5>
+                                    <hr>
+                                    <div>
+                                        <label  class="font-weight-bold text-muted">Email:</label><span
+                                            class="font-weight-light ml-2">{{userInfo?.email}}</span>
+                                    </div>
+                                    <div>
+                                        <label class="font-weight-bold text-muted">Phone:</label><span
+                                            class="font-weight-light ml-2">{{userInfo?.phone}}</span>
+                                    </div>
+                                    <div>
+                                        <label class="font-weight-bold text-muted">Location:</label><span
+                                            class="font-weight-light ml-2">{{userInfo?.location}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- experience section -->
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-2 text-muted font-weight-lighter">Experience</h4>
+                        <div *ngFor="let item of rootExperience?.experience">
+                            <hr>
+                            <div>
+                                <span style="font-size: 20px;"
+                                    class="card-subtitle text-primary mr-3">{{item.job_title}}</span>
+                                (<span></span><span class="mr-2">{{item.date_from|date}}</span>
+                                <span class="mr-2">-</span><span>{{item.date_to|date}}</span>)
+                            </div>
+                            <div>
+                                <span style="font-size: 18px;">{{item.company_name}}</span>
+                            </div>
+                            <div>
+                                <span class="text-muted">{{item.location}}</span>
+                            </div>
+                            <div class="mt-4">
+                                <p>{{item.details}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- education section -->
+
+        <div class="row mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-subtitle mb-2 mb-4 text-muted font-weight-lighter">Education</h4>
+                        <div *ngFor="let item of rootEducation?.education">
+                            <hr>
+                            <div>
+                                <span style="font-size: 20px;" class="card-subtitle text-primary">{{item.degree}}</span>
+                            </div>
+                            <div>
+                                <span style="font-size: 18px;" class="card-subtitle mr-2">{{item.institution}}</span>
+                                (<span></span><span class="mr-2">{{item.date_from|date}}</span>
+                                <span class="mr-2">-</span><span>{{item.date_to|date}}</span>)
+                            </div>
+                            <div>
+                                <span>{{item.location}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- skills section -->
+
+        <div  class="row mt-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-subtitle mb-2 mb-4 text-muted font-weight-lighter">Skills</h4>
+                        <hr>
+                        <div>
+                            <ul class="list-group list-group-horizontal-sm">
+                                <div *ngFor="let item of rootSkills?.skills">
+                                    <li class="list-group-item mr-2">{{item}}</li>
+                                </div>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</mat-dialog-content>

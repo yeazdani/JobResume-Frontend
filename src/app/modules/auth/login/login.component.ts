@@ -1,6 +1,5 @@
 import { AuthService } from './../../shared/services/auth-service/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -44,14 +43,12 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(signInPayload).subscribe(
       res => {
-        console.log(res);
         this.loading = false;
         this.router.navigate(['/jobs'])
       },
       err => {
         this.isDisabled = false;
         this.loading = false;
-        console.log(err);
       }
     )
   }

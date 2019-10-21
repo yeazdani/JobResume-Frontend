@@ -1,5 +1,12 @@
 <div class="container">
     <div class="row">
+        <div class="col">
+            <div *ngIf="successfull" class="alert alert-success" role="alert">
+                A simple success alert—check it out!
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col"></div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card mt-4">
@@ -10,15 +17,18 @@
                     <form [formGroup]="registerForm">
                         <div class="form-group">
                             <label for="exampleInputEmail1">First Name</label>
-                            <input formControlName="first_name" type="email" class="form-control" aria-describedby="emailHelp">
+                            <input formControlName="first_name" type="email" class="form-control"
+                                aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Last Name</label>
-                            <input formControlName="last_name" type="email" class="form-control" aria-describedby="emailHelp">
+                            <input formControlName="last_name" type="email" class="form-control"
+                                aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email</label>
-                            <input formControlName="email" type="email" class="form-control" aria-describedby="emailHelp">
+                            <input formControlName="email" type="email" class="form-control"
+                                aria-describedby="emailHelp">
                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                             else.</small> -->
                         </div>
@@ -28,8 +38,15 @@
                         </div>
                         <br>
                         <div class="text-center">
-                            <button style="width: 100%" (click)="signUp()" class="btn btn-primary">Sign Up</button>
+                            <button style="width: 100%" (click)="signUp()" class="btn btn-primary"
+                                [disabled]="isDisabled">Sign Up</button>
                         </div>
+                        <div class="text-center">
+                            <div *ngIf="loading" class="spinner-border mt-3" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+
                         <br>
                     </form>
                 </div>

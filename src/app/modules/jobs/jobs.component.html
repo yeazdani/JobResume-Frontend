@@ -22,10 +22,10 @@
     <div style="min-height: 1200px;;" class="inner">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-3">
+                <div class="col-lg-3 col-sm-12">
                     <app-job-filter (checkedEvent)="changeSearchName($event)"></app-job-filter>
                 </div>
-                <div class="col-4">
+                <div class="col-lg-4 col-sm-12">
                     <div *ngIf="loading" class="row text-center mt-4">
                         <div class="col">
                             <div class="spinner-border" role="status">
@@ -40,7 +40,7 @@
                         </app-job-list>
                     </div>
                 </div>
-                <div class="col-5">
+                <div class="col-lg-5 col-sm-12">
                     <app-job-details></app-job-details>
                 </div>
             </div>

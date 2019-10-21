@@ -1,4 +1,4 @@
-<div class="card mt-4">
+<div class="card bg-light mt-4">
     <div class="card-header">
         SKILLS
     </div>
@@ -7,13 +7,18 @@
             <input #add type="text" class="form-control" placeholder="Add Skills" aria-label="Recipient's username"
                 aria-describedby="button-addon2">
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" (click)="addSkill(add)" type="button">
+                <button class="btn btn-outline-info" (click)="addSkill(add)" type="button">
                     Add
                 </button>
             </div>
         </div>
+        <div *ngIf="expression" class="text-center">
+            <div class="spinner-grow" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
         <span *ngFor="let skill of skills; let i = index" class="mr-2">
-            <button mat-stroked-button (click)="deleteSkill(i)">
+            <button class="" mat-stroked-button (click)="deleteSkill(i)">
                 <mat-icon aria-hidden="false" aria-label="Example home icon">close</mat-icon>
                 <span>{{skill}}</span>
             </button>

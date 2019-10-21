@@ -1,4 +1,4 @@
-import { UserInfo } from './../../models/user-info.model';
+import { UserInfo } from '../../models/user-info.model';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { StorageService } from '../../shared/services/storage-service/storage.service';
 import { ProfileService } from '../../shared/services/profile-service/profile.service';
@@ -74,6 +74,7 @@ export class PersonalInfoComponent implements OnInit {
     this.profileService.updateUserInfo(this.userInfo).subscribe(
       res => {
         this.emitSnackBar.emit();
+        this.profileService.sendToSibling();
       }
     );
 

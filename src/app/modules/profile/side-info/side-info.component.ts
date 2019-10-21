@@ -4,6 +4,7 @@ import { StorageService } from './../../shared/services/storage-service/storage.
 import { Component, OnInit } from '@angular/core';
 import { PreviewResumeComponent } from '../preview-resume/preview-resume.component';
 import { MatDialog } from '@angular/material';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-side-info',
@@ -12,6 +13,7 @@ import { MatDialog } from '@angular/material';
 })
 export class SideInfoComponent implements OnInit {
   selectedFile: File = null;
+  subscription: Subscription;
 
   user: UserInfo;
   firstName;
@@ -26,9 +28,21 @@ export class SideInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firstName = this.user.first_name;
-    this.lastName = this.user.last_name;
-    // this.fetchImage();
+    this.userInfo();
+    this.subscription = this.profileService.getFromSibling().subscribe(
+      res => {
+        this.userInfo();
+      }
+    );
+  }
+
+  userInfo() {
+    this.profileService.getUserInfo(this.user.uid).subscribe(
+      (res: UserInfo) => {
+        this.firstName = res.first_name;
+        this.lastName = res.last_name;
+      }
+    );
   }
 
   fetchImage() {
@@ -68,6 +82,11 @@ export class SideInfoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog closed event');
     });
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
   }
 
 }

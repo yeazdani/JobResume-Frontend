@@ -10,21 +10,21 @@
                 <ul class="navbar-nav mr-auto">
                     <div class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" [routerLink]="['/jobs']">JOBS
+                            <a class="nav-link" [routerLink]="['/jobs']">Jobs
                                 <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" [routerLink]="['/post-job']" routerLinkActive="router-link-active" >POST JOB<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" [routerLink]="['/post-job']" routerLinkActive="router-link-active" >Post Job<span class="sr-only">(current)</span></a>
                         </li>
                     </div>
                 </ul>
                 <div class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active-link">CREATE RESUME</a>
+                        <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active-link">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" *ngIf="userIsAuthenticated" (click)="logout()">LOGOUT</a>
-                        <a *ngIf="!userIsAuthenticated" class="nav-link" [routerLink]="['/login']">LOGIN</a>
+                        <a class="nav-link" *ngIf="userIsAuthenticated" (click)="logout()">Logout</a>
+                        <a *ngIf="!userIsAuthenticated" class="nav-link" [routerLink]="['/login']">Login</a>
                     </li>
                 </div>
             </div>

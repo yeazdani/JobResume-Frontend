@@ -1,8 +1,9 @@
+import { RootPostJob } from './../models/root-post-job.model';
 import { RootExperience } from './../models/root-experience.model';
 import { StorageService } from './../shared/services/storage-service/storage.service';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar, MatDialog } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { ProfileService } from '../shared/services/profile-service/profile.service';
 import { RootEducation } from '../models/root-education.model';
 
@@ -17,6 +18,7 @@ export class ProfileComponent implements OnInit {
 
   experienceList: any[] = [];
   educationList: any[] = [];
+  postedJobs: number = 0;
 
   experienceDocumentCreated = false;
   educationDocumentCreated = false;
@@ -34,6 +36,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.getExperienceUpdate();
     this.getEducationUpdate();
+    this.getPostedJobs();
   }
 
   openSnackBar() {
@@ -169,6 +172,15 @@ export class ProfileComponent implements OnInit {
     return rootEdu;
   }
 
-
+  getPostedJobs() {
+    this.profileService.getJob(this.user.uid).subscribe(
+      (res: RootPostJob) => {
+        if (!res) {
+          return;
+        }
+        this.postedJobs = res.postJobs.length;
+      }
+    );
+  }
 
 }

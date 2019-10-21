@@ -4,12 +4,19 @@
             <div class="col">
                 <div class="card shadow-sm mb-3 bg-light rounded link-hand">
                     <div class="card-body">
-                        <h5 class="card-title text-info font-weight-light">Job Filter</h5>
+                        <h5 class="card-title text-info font-weight-light">Filters</h5>
                         <hr>
-                        <div *ngFor="let item of filterCheckBoxs">
+                        <div *ngFor="let item of jobTypeFilters">
                             <mat-checkbox #checkBox (click)="checked(checkBox,item)">{{item}}</mat-checkbox>
                         </div>
-
+                        <hr>
+                        <div *ngFor="let item of locationFilters">
+                            <mat-checkbox #checkBox (click)="checked(checkBox,item)">{{item}}</mat-checkbox>
+                        </div>
+                        <hr>
+                        <div *ngFor="let item of developers">
+                            <mat-checkbox #checkBox (click)="checked(checkBox,item)">{{item}}</mat-checkbox>
+                        </div>
                     </div>
                 </div>
             </div>

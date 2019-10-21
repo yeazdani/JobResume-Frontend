@@ -10,7 +10,9 @@ export class JobFilterComponent implements OnInit {
 
   @Output() checkedEvent = new EventEmitter<string>();
 
-  filterCheckBoxs: any[] = ["Full-Time", "Part-Time", "Montreal", "Toronto"];
+  jobTypeFilters: any[] = ["Full-Time", "Part-Time"];
+  locationFilters: any[] = ["Montreal", "Toronto"];
+  developers: any[] = ["PHP","Angular","Java"]
 
   constructor() { }
 

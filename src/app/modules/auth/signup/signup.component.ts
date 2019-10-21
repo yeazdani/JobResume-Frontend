@@ -1,8 +1,8 @@
+import { Router } from '@angular/router';
 import { UserInfo } from './../../models/user-info.model';
 import { AuthService } from './../../shared/services/auth-service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ProfileService } from '../../shared/services/profile-service/profile.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,10 +12,15 @@ import { ProfileService } from '../../shared/services/profile-service/profile.se
 export class SignupComponent implements OnInit {
   registerForm: FormGroup;
   userInfo: UserInfo;
+
+  isDisabled = false;
+  loading = false;
+  successfull = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private profileService: ProfileService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -38,12 +43,10 @@ export class SignupComponent implements OnInit {
   }
 
   signUp() {
-
     if (this.registerForm.invalid) {
-      console.log('Invalid Form')
       return;
     }
-
+    this.loading = true;
     const newUser = {
       "first_name": this.registerForm.value.first_name,
       "last_name": this.registerForm.value.last_name,
@@ -57,10 +60,12 @@ export class SignupComponent implements OnInit {
 
     this.authService.register(newUser).subscribe(
       res => {
-        console.log(res);
+        this.loading = false;
+        this.router.navigate(['/login']);
       },
       err => {
-        console.log(err)
+        this.isDisabled = false;
+        this.loading = false;
       }
     );
 

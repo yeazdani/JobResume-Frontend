@@ -12,6 +12,7 @@ export class SkillsComponent implements OnInit {
   skills: any[] = [];
   skillsDocumentCreated = false;
   user: any;
+  loading = true;
 
   constructor(
     private storageService: StorageService,
@@ -32,6 +33,7 @@ export class SkillsComponent implements OnInit {
         }
         this.skills = res.skills;
         this.skillsDocumentCreated = true;
+        this.loading = false;
       }
     );
   }

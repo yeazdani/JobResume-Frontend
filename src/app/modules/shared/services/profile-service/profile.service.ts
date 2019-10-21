@@ -1,11 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
+
+  private siblingEvent = new Subject<void>();
 
   constructor(
     private http: HttpClient
@@ -59,4 +62,12 @@ export class ProfileService {
   getJob(uid: any) {
     return this.http.get<any>(`${environment.baseApiUrl}job?id=${uid}`);
   }
+
+  sendToSibling() {
+    this.siblingEvent.next();
+  }
+  getFromSibling() {
+    return this.siblingEvent.asObservable();
+  }
+
 }

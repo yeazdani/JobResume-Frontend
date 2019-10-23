@@ -12,7 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [
   {
-    path: 'login', component: LoginComponent
+    path: '', component: LoginComponent
   },
   {
     path: 'signup', component: SignupComponent

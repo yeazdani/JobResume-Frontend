@@ -6,5 +6,5 @@ export interface UserInfo {
     current_title: string;
     phone: string;
     location: string;
-    picRef: string;
+    picRef: boolean;
 }

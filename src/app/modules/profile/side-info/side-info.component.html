@@ -3,7 +3,8 @@
         Information
     </div>
     <div class="show-image">
-        <img src="../../../../assets/default.jpg" alt="..." class="card-img-top">
+        <img [src]="imageURL" alt="..." class="card-img-top">
+        <div>{{ uploadPercent | async }}</div>
         <input style="display: none;" #uploadImage type="file" (change)="onFileSelected($event)" />
         <button class="update btn" (click)="uploadImage.click()">
             <mat-icon aria-hidden="false" aria-label="Example home icon">photo_camera</mat-icon>

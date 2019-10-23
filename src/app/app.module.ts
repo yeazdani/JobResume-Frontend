@@ -11,6 +11,9 @@ import { ProfileModule } from './modules/profile/profile.module';
 import { HeaderComponent } from './modules/header/header.component';
 import { FooterComponent } from './modules/footer/footer.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { FooterComponent } from './modules/footer/footer.component';
     ProfileModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthModule
+    AuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

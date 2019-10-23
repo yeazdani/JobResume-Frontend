@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
       "current_title": "",
       "phone": "",
       "location": "",
-      "picRef": ""
+      "picRef": false
     };
 
     this.authService.register(newUser).subscribe(

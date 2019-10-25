@@ -11,8 +11,9 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  isDisabled = false;
   loading = false;
+  invalid: Boolean = false;
+  disabled: Boolean = true;
 
   constructor(
     private authService: AuthService,
@@ -33,9 +34,10 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.invalid) {
+      this.invalid = true;
       return;
     }
-    this.isDisabled = true;
+    this.disabled = false;
     this.loading = true;
     const signInPayload = {
       "email": this.loginForm.value.email,
@@ -47,8 +49,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/jobs'])
       },
       err => {
-        this.isDisabled = false;
+        this.disabled = false;
         this.loading = false;
+        this.invalid = true;
+        console.log(err)
       }
     )
   }

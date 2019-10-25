@@ -44,10 +44,8 @@ export class PostJobComponent implements OnInit {
     this.profileService.getJob(this.user.uid).subscribe(
       (res: RootPostJob) => {
         if (!res) {
-          console.log("null")
           return;
         }
-        console.log("not null")
         this.jobExsists = true;
         this.postJobs = res.postJobs;
       }

@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   isDisabled = false;
   loading = false;
   successfull = false;
+  invalid = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,6 +45,7 @@ export class SignupComponent implements OnInit {
 
   signUp() {
     if (this.registerForm.invalid) {
+      this.invalid = true;
       return;
     }
     this.loading = true;

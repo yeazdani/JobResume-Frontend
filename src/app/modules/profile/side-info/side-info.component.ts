@@ -8,7 +8,6 @@ import { MatDialog } from '@angular/material';
 import { Subscription, Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-side-info',
   templateUrl: './side-info.component.html',
@@ -54,12 +53,10 @@ export class SideInfoComponent implements OnInit {
           const ref = this.fireStorage.ref('users/' + this.user.uid);
           ref.getDownloadURL()
             .subscribe((avatarUrl) => {
-              // Do something with avatarUrl here
               this.imageURL = avatarUrl;
             }, (error) => {
-              // Handle error here
-              // Show popup with errors or just console.error
-              // console.error(error);
+              // hadles error
+                this.imageURL = this.defaultImage;
             });
         } else {
           this.imageURL = this.defaultImage;

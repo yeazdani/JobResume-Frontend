@@ -8,7 +8,14 @@ import { SignupComponent } from './signup/signup.component';
 import { AuthComponent } from './auth.component';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import {
+  MatCardModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatInputModule,
+  MatToolbarModule,
+  MatIconModule
+} from '@angular/material';
 
 const routes: Routes = [
   {
@@ -31,7 +38,13 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule
   ]
 })
 export class AuthModule { }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: 'http://localhost:9090/',
+  baseApiUrl: 'http://localhost:8080/',
+  // baseApiUrl: 'http://springapi-env.ju8u4w4ftb.us-east-2.elasticbeanstalk.com/',
   firebaseConfig: {
     apiKey: "AIzaSyATN1E5iO2vKdvwYUBp9_V3fgKhYBfzi4s",
     authDomain: "mcit-final-project.firebaseapp.com",

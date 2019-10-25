@@ -13,12 +13,17 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   private authListenerSubs: Subscription;
   userIsAuthenticated = false;
-
+  navbarOpen = false;
+  
   constructor(
     private authService: AuthService,
     private storageService: StorageService,
     private router: Router
   ) { }
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 
   ngOnInit() {
     if (this.storageService.getToken()) {

@@ -23,7 +23,7 @@ export class PersonalInfoComponent implements OnInit {
   current_title: string = "";
   phone: string = "";
   location: string = "";
-  picRef: string = "";
+  picRef: boolean;
 
   userInfo: UserInfo;
 

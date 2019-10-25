@@ -120,7 +120,7 @@ export class SideInfoComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog closed event');
+      // console.log('The dialog closed event');
     });
   }
 

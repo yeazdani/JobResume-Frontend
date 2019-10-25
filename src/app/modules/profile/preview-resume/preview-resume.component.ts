@@ -6,6 +6,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { StorageService } from '../../shared/services/storage-service/storage.service';
 import { RootEducation } from '../../models/root-education.model';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-preview-resume',
@@ -18,11 +19,13 @@ export class PreviewResumeComponent implements OnInit {
   rootExperience: RootExperience;
   rootEducation: RootEducation;
   rootSkills: RootSkills[];
-
+  imageURL: any;
+  defaultImage = "../../../../assets/default.jpg";
 
   constructor(
     private storageService: StorageService,
     private profileService: ProfileService,
+    private fireStorage: AngularFireStorage,
     public dialogRef: MatDialogRef<PreviewResumeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
@@ -33,6 +36,20 @@ export class PreviewResumeComponent implements OnInit {
     this.profileService.getUserInfo(this.user.uid)
       .subscribe((res: UserInfo) => {
         this.userInfo = res;
+        if (res.picRef) {
+          const ref = this.fireStorage.ref('users/' + this.user.uid);
+          ref.getDownloadURL()
+            .subscribe((avatarUrl) => {
+              // Do something with avatarUrl here
+              this.imageURL = avatarUrl;
+            }, (error) => {
+              // Handle error here
+              // Show popup with errors or just console.error
+              // console.error(error);
+            });
+        } else {
+          this.imageURL = this.defaultImage;
+        }
       });
     this.profileService.getExperience(this.user.uid)
       .subscribe((res: RootExperience) => {

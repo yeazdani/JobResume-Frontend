@@ -3,7 +3,7 @@ import { RootPostJob } from './../../models/root-post-job.model';
 import { PostJob } from './../../models/post-job.model';
 import { ProfileService } from './../../shared/services/profile-service/profile.service';
 import { UserInfo } from './../../models/user-info.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { StorageService } from '../../shared/services/storage-service/storage.service';
 
 @Component({
@@ -14,6 +14,8 @@ import { StorageService } from '../../shared/services/storage-service/storage.se
 export class PostJobComponent implements OnInit {
 
   jobTypes: any[] = ['Full-Time', 'Part-Time'];
+
+  @Output() emitSnackBar = new EventEmitter<void>();
 
   user: UserInfo;
   postJobs: PostJob[] = [];
@@ -58,15 +60,16 @@ export class PostJobComponent implements OnInit {
       this.profileService.postJob(rooObj).subscribe(
         res => {
           this.getExistingJobs();
-          // this.router.navigate(['/profile']);
-
+          this.emitSnackBar.emit();
+          this.router.navigate(['/profile']);
         }
       );
     } else {
       this.profileService.putJob(rooObj).subscribe(
         res => {
           this.getExistingJobs();
-          // this.router.navigate(['/profile']);
+          this.emitSnackBar.emit();
+          this.router.navigate(['/profile']);
         }
       );
     }
